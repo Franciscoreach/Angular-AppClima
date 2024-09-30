@@ -1,0 +1,15 @@
+input {
+    text-align: center;
+}
+
+.size {
+    font-size: 1rem;
+}
+
+.form-control, .btn {
+    width: 100%;
+}
+
+.card-body{
+    text-align: center;
+}

@@ -1,0 +1,30 @@
+<div class="container pt-4">
+    <div *ngIf="mostrarError" class="alert alert-dismissible alert-danger">
+        <div class="text-center">
+            <strong>Error al obtener el clima</strong>, ingresaste una <strong>ciudad</strong> que no existe.
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <img [src]="urlImage" alt="img_clima" height="300px" width="300px">
+        </div>
+        <div class="col-lg-6 pt-5">
+            <input type="text" [(ngModel)]="ciudad" class="form-control form-control-lg size" 
+                placeholder="Ingrese ciudad">
+            <button (click)="obtenerClima()" class="btn btn-lg btn-primary btn-block mt-4 size"
+                [disabled]="ciudad == '' ">OBTENER CLIMA</button>  
+            <div *ngIf="loading" class="text-center mt-3">
+                <div class="spinner-grow text-warning" role="status"><span class="sr-only"></span></div>
+                <div class="spinner-grow text-warning" role="status"><span class="sr-only"></span></div>
+                <div class="spinner-grow text-warning" role="status"><span class="sr-only"></span></div>
+            </div>
+            <div *ngIf="query" class="card mt-3">
+                <div class="card-body">
+                    <p><b>Temperatura: </b>{{ temperatura | number:'1.2-2' }}°C</p>
+                    <p><b>Humedad: </b> {{ humedad }}%</p>
+                    <p><b>Clima: </b> {{clima}} </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
